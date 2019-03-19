@@ -11,8 +11,8 @@ type NewController struct {
 }
 
 func (this *NewController) Get() {
-	this.Layout = "layout.tpl"
-	this.TplName = "new.tpl"
+	this.Layout = "layout.html"
+	this.TplName = "new.html"
 }
 
 func (this *NewController) Post() {
@@ -21,6 +21,7 @@ func (this *NewController) Post() {
 	blog.Title = inputs.Get("title")
 	blog.Content = inputs.Get("content")
 	blog.Created = time.Now()
+
 	models.SaveBlog(blog)
 	this.Ctx.Redirect(302, "/")
 }		

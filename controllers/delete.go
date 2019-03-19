@@ -4,7 +4,6 @@ import (
 	"github.com/astaxie/beego"
 	"strconv"
 	"go-blog/models"
-
 )
 
 type DeleteController struct {

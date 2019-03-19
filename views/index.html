@@ -1,0 +1,21 @@
+<div class="row" >
+    <div class="col-md-8 col-md-offset-1" id="id-div-msg-list">
+
+        {{range .blogs}}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/view/{{.Id}}">{{.Title}}</a>
+                    <p class="text-right">
+                        <a href="/edit/{{.Id}}">编辑</a>
+                        <a href="/delete/{{.Id}}">删除</a>
+                    </p>
+                </div>
+                <div class="panel-body">
+                    {{.Content}}
+                    <p class="text-right"><time>{{.Created}}</time></p>
+                </div>
+            </div>
+        {{end}}
+
+    </div>
+</div>

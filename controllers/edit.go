@@ -14,8 +14,8 @@ type EditController struct {
 func (this *EditController) Get() {
 	id, _ := strconv.Atoi(this.Ctx.Input.Params()[":id"])
 	this.Data["Post"] = models.GetBlog(id)
-	this.Layout = "layout.tpl"
-	this.TplName = "edit.tpl"
+	this.Layout = "layout.html"
+	this.TplName = "edit.html"
 }
 
 func (this *EditController) Post() {
