@@ -25,6 +25,8 @@ func (this *EditController) Post() {
 	blog.Title = inputs.Get("title")
 	blog.Content = inputs.Get("content")
 	blog.Created = time.Now()
+	beego.Notice("svae...1")
+	beego.Notice(blog)
 	models.SaveBlog(blog)
 	this.Ctx.Redirect(302, "/")
 }

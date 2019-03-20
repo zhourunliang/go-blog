@@ -5,6 +5,7 @@ import (
 	"github.com/astaxie/beedb"
 	_ "github.com/ziutek/mymysql/godrv"
 	"time"
+	"github.com/astaxie/beego"
 )
 
 type Blog struct {
@@ -43,6 +44,9 @@ func SaveBlog(blog Blog) (bg Blog) {
 
 func DelBlog(blog Blog) {
 	db := GetLink()
-	db.Delete(&blog)
+	// db.Delete(&blog)
+	beego.Notice("del...1")
+	beego.Notice(blog.Id)
+	db.SetTable("blog").Where("id=?", blog.Id).DeleteRow()
 	return
 }
