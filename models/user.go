@@ -1,7 +1,7 @@
 package models
 
 import (
-    "fmt"
+    // "fmt"
     "github.com/astaxie/beego/orm"
     _ "github.com/go-sql-driver/mysql" // import your used driver
 )
@@ -10,6 +10,7 @@ import (
 type User struct {
     Id   int
     Name string `orm:"size(100)"`
+    Password string `orm:"size(100)"`
 }
 
 func init() {
@@ -24,10 +25,8 @@ func init() {
 }
 
 
-func SaveUser()  {
+func SaveUser(user *User)  int64{
 	o := orm.NewOrm()
-	user := new(User)
-	user.Name = "slene"
-
-	fmt.Println(o.Insert(user))
+    id, _ := o.Insert(user)
+    return id
 }
