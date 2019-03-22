@@ -3,27 +3,27 @@
 
         <h1 class="text-center">登陆</h1>
 
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" action="" method="post">
             <div class="form-group">
                 <label for="id-input-name" class="col-sm-2 control-label">姓名</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="id-input-name" placeholder="请输入姓名">
+                    <input type="text" class="form-control" id="id-input-name" name="name" placeholder="请输入姓名">
                 </div>
             </div>
             <div class="form-group">
                 <label for="id-input-password" class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="id-input-password" placeholder="请输入密码">
+                    <input type="password" class="form-control" id="id-input-password" name="password" placeholder="请输入密码">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default" id='id-button-submit'>登陆</button>
+                    <button type="submit" class="btn btn-default" id='id-button-submit'>登陆</button>
                 </div>
             </div>
             
         </form>
-            <div id="id-div-alert"></div>
+        {{template "components/flash_error.html" .}}
     </div>
 </div>

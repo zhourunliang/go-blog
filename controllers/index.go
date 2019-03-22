@@ -10,6 +10,8 @@ type IndexController struct {
 }
 
 func (this *IndexController) Get() {
+	loginuser := this.GetSession("loginuser")
+	this.Data["loginuser"] = loginuser
 	this.Data["blogs"] = models.GetAll()
 	this.Layout = "layout.html"
 	this.TplName = "index.html"

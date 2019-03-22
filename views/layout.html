@@ -23,12 +23,14 @@
                     <a class="navbar-brand" href="/">博客</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    
-                    <li><a href="/new"><span class="glyphicon glyphicon-plus"></span> 新博客</a></li>  
-
-                    <li><a href="/register"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-
+                    {{if .loginuser}}
+                        <li><a href="#">{{.loginuser}}</a></li>
+                        <li><a href="/new"><span class="glyphicon glyphicon-plus"></span> 新博客</a></li>  
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 登出</a></li>
+                    {{else}}
+                        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    {{end}}
                 </ul>
             </div>
         </nav>

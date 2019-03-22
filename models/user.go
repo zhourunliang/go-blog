@@ -24,6 +24,19 @@ func init() {
     orm.RunSyncdb("default", false, true)
 }
 
+func Login(username string) (bool, User) {
+    o := orm.NewOrm()
+    var user User
+    err := o.QueryTable(user).Filter("Name", username).One(&user)
+    return err != orm.ErrNoRows, user
+}
+
+func FindUserByUserName(username string) (bool, User) {
+    o := orm.NewOrm()
+    var user User
+    err := o.QueryTable(user).Filter("Name", username).One(&user)
+    return err != orm.ErrNoRows, user
+}
 
 func SaveUser(user *User)  int64{
 	o := orm.NewOrm()
