@@ -11,13 +11,20 @@ git clone https://github.com/zhourunliang/go-blog
 ```
 + 创建数据表
 ```sql
-CREATE TABLE entries (
-    id INT AUTO_INCREMENT,
-    title TEXT,
-    content TEXT,
-    created DATETIME,
-    primary key (id)
-);
+CREATE TABLE `blog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text,
+  `content` text,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 ```
 + 运行程序
 ```bash
